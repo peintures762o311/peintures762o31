@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Audio Player</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+    }button {
+  font-size: 60px;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.2);
+}
+
+  </style>
+</head>
+<body><button id="playBtn">&#9654;&#65039;</button> <a href="https://namski.com" target="_blank" rel="noopener noreferrer" style="margin-left:30px;display:inline-block;vertical-align:middle;"><img src="namski.png" alt="Namski" style="width:100px;height:100px;object-fit:contain;cursor:pointer;transition:0.2s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></a> <audio id="player"></audio>
+
+  <script>
+    const audioFileURL = "Amazon Fits.mp3";
+    const audio = document.getElementById('player');
+    const btn = document.getElementById('playBtn');
+    let isPlaying = false;
+
+    audio.src = audioFileURL;
+
+    btn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        btn.innerHTML = '&#9654;&#65039;';
+        isPlaying = false;
+      } else {
+        audio.play();
+        btn.innerHTML = '&#9208;&#65039;';
+        isPlaying = true;
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      btn.innerHTML = '&#9654;&#65039;';
+      isPlaying = false;
+    });
+  </script></body>
+</html>
