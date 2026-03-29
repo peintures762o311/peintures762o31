@@ -1,17 +1,22 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peintures762o31.coM</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-    }button {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peintures762o31.coM</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+button {
   font-size: 60px;
   border: none;
   background: none;
@@ -24,33 +29,57 @@ button:hover {
   transform: scale(1.2);
 }
 
-  </style>
+video {
+  width: 300px;
+  max-width: 80vw;
+  margin-top: 40px;
+  border-radius: 12px;
+}
+</style>
 </head>
-<body><button id="playBtn">&#9654;&#65039;</button> <a href="https://namski.com" target="_blank" rel="noopener noreferrer" style="margin-left:30px;display:inline-block;vertical-align:middle;"><img src="namski.png" alt="Namski" style="width:100px;height:100px;object-fit:contain;cursor:pointer;transition:0.2s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></a> <audio id="player"></audio>
 
-  <script>
-    const audioFileURL = "SangreCH.mp3";
-    const audio = document.getElementById('player');
-    const btn = document.getElementById('playBtn');
-    let isPlaying = false;
+<body>
 
-    audio.src = audioFileURL;
+<button id="playBtn">&#9654;&#65039;</button>
 
-    btn.addEventListener('click', () => {
-      if (isPlaying) {
-        audio.pause();
-        btn.innerHTML = '&#9654;&#65039;';
-        isPlaying = false;
-      } else {
-        audio.play();
-        btn.innerHTML = '&#9208;&#65039;';
-        isPlaying = true;
-      }
-    });
+<a href="https://namski.com" target="_blank" rel="noopener noreferrer">
+<img src="namski.png"
+style="margin-top:30px;width:100px;height:100px;object-fit:contain;cursor:pointer;">
+</a>
 
-    audio.addEventListener('ended', () => {
-      btn.innerHTML = '&#9654;&#65039;';
-      isPlaying = false;
-    });
-  </script></body>
+<!-- VIDEO ADDED HERE -->
+<video controls>
+  <source src="peintures762o31.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
+
+<audio id="player"></audio>
+
+<script>
+const audioFileURL = "SangreCH.mp3";
+const audio = document.getElementById('player');
+const btn = document.getElementById('playBtn');
+let isPlaying = false;
+
+audio.src = audioFileURL;
+
+btn.addEventListener('click', () => {
+  if (isPlaying) {
+    audio.pause();
+    btn.innerHTML = '&#9654;&#65039;';
+    isPlaying = false;
+  } else {
+    audio.play();
+    btn.innerHTML = '&#9208;&#65039;';
+    isPlaying = true;
+  }
+});
+
+audio.addEventListener('ended', () => {
+  btn.innerHTML = '&#9654;&#65039;';
+  isPlaying = false;
+});
+</script>
+
+</body>
 </html>
